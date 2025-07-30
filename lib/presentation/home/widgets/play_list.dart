@@ -119,7 +119,7 @@ class Playlist extends StatelessWidget{
               IconButton(
                 onPressed: (){},
                 icon: Icon(
-                  Icons.favorite,
+                  Icons.favorite_border_rounded,
                   color: context.isDarkMode ? AppColor.darkGrey : Color(0xffB4B4B4),
                   size: 30,
                 ),

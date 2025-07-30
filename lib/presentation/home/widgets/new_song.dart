@@ -61,7 +61,7 @@ class NewSongs extends StatelessWidget{
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
                         image: DecorationImage(
-                          image: NetworkImage(AppUrls().buildCloudinaryUrl(songs[index].cover_id)),
+                          image: NetworkImage(AppUrls().buildCloudinaryCoverUrl(songs[index].cover_id)),
                           fit: BoxFit.cover
                         ),
                       ),
