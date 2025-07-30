@@ -11,7 +11,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../common/widgets/input/custom_text_field.dart';
 import '../../../data/models/auth/signing_user_reg.dart';
 import '../../../service_locator.dart';
-import '../../root/pages/home.dart';
+import '../../home/pages/home.dart';
 
 class SignIn extends StatelessWidget{
   SignIn({super.key});

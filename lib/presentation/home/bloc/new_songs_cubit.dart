@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_spotify/presentation/root/bloc/new_songs_state.dart';
+import 'package:flutter_spotify/presentation/home/bloc/new_songs_state.dart';
 import '../../../domain/usecases/song/get_new_songs.dart';
 import '../../../service_locator.dart';
 

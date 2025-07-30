@@ -51,12 +51,13 @@ class AuthFirebaseServiceImpl implements AuthFirebaseService{
       await data.user?.updateDisplayName(createUserReg.fullName);
 
       try {
-        await FirebaseFirestore.instance.collection('Users').add({
+        await FirebaseFirestore.instance.collection('Users').doc(data.user?.uid)
+            .set({
                 'name': createUserReg.fullName,
                 'email': data.user?.email,
                 'uid': data.user!.uid,
                 'createdAt': DateTime.now()
-              });
+            });
       } catch (e) {
         print(e);
       }

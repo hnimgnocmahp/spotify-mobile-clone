@@ -5,8 +5,10 @@ import 'package:flutter_spotify/data/sources/song/song_firebase_service.dart';
 import 'package:flutter_spotify/domain/repository/auth/auth.dart';
 import 'package:flutter_spotify/domain/usecases/auth/signin.dart';
 import 'package:flutter_spotify/domain/usecases/auth/signup.dart';
+import 'package:flutter_spotify/domain/usecases/song/add_or_remove_favourite_song.dart';
 import 'package:flutter_spotify/domain/usecases/song/get_new_songs.dart';
 import 'package:flutter_spotify/domain/usecases/song/get_play_list.dart';
+import 'package:flutter_spotify/domain/usecases/song/is_favourite_song.dart';
 import 'package:get_it/get_it.dart';
 
 import 'data/repository/auth/auth_repository_impl.dart';
@@ -44,7 +46,15 @@ Future<void> initializeDependencies() async{
   );
 
   sl.registerSingleton<GetPlaylistUseCase>(
-    GetPlaylistUseCase()
+      GetPlaylistUseCase()
+  );
+
+  sl.registerSingleton<AddOrRemoveFavouriteSongUseCase>(
+      AddOrRemoveFavouriteSongUseCase()
+  );
+
+  sl.registerSingleton<IsFavouriteSongUseCase>(
+      IsFavouriteSongUseCase()
   );
 
 }

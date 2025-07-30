@@ -5,8 +5,8 @@ import 'package:flutter_spotify/common/widgets/appbar/app_bar.dart';
 import 'package:flutter_spotify/core/configs/assets/app_images.dart';
 import 'package:flutter_spotify/core/configs/assets/app_vectors.dart';
 import 'package:flutter_spotify/core/configs/theme/app_color.dart';
-import 'package:flutter_spotify/presentation/root/widgets/new_song.dart';
-import 'package:flutter_spotify/presentation/root/widgets/play_list.dart';
+import 'package:flutter_spotify/presentation/home/widgets/new_song.dart';
+import 'package:flutter_spotify/presentation/home/widgets/play_list.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class HomePage extends StatefulWidget {

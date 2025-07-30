@@ -3,7 +3,7 @@ import 'package:flutter_spotify/common/widgets/appbar/app_bar.dart';
 import 'package:flutter_spotify/common/widgets/input/custom_text_field.dart';
 import 'package:flutter_spotify/core/configs/assets/app_vectors.dart';
 import 'package:flutter_spotify/presentation/auth/pages/signin.dart';
-import 'package:flutter_spotify/presentation/root/pages/home.dart';
+import 'package:flutter_spotify/presentation/home/pages/home.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../common/widgets/button/basic_app_button.dart';
