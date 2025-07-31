@@ -6,6 +6,7 @@ import 'package:flutter_spotify/common/widgets/appbar/app_bar.dart';
 import 'package:flutter_spotify/core/configs/constants/app_urls.dart';
 import 'package:flutter_spotify/core/configs/theme/app_color.dart';
 
+import '../../../common/widgets/favourite_button/favourite_button.dart';
 import '../../../domain/entities/song/song.dart';
 import '../bloc/song_player_cubit.dart';
 import '../bloc/song_player_state.dart';
@@ -22,7 +23,6 @@ class SongPlayerPage extends StatelessWidget{
         title: Text('Now Playing'),
         action: IconButton(
           onPressed: (){
-
           },
           icon: Icon(Icons.more_vert_rounded)
         ),
@@ -83,13 +83,7 @@ class SongPlayerPage extends StatelessWidget{
                 )
               ]
             ),
-            IconButton(
-              onPressed: (){
-
-              },
-              icon: Icon(Icons.favorite_border_rounded),
-              highlightColor: Colors.transparent,
-            )
+            FavouriteButton(song: song),
           ],
 
       ),

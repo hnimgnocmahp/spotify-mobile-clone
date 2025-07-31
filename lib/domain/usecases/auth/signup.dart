@@ -7,8 +7,8 @@ import '../../../service_locator.dart';
 class SignupUseCase implements UseCase<Either<String, String>, CreateUserReg> {
 
   @override
-  Future<Either<String, String>> call({required CreateUserReg params}) async{
-    return sl<AuthRepository>().signUp(params);
+  Future<Either<String, String>> call({CreateUserReg? params}) async{
+    return sl<AuthRepository>().signUp(params!);
   }
 
 }

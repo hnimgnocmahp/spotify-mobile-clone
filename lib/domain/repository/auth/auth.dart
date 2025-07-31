@@ -7,5 +7,6 @@ abstract class AuthRepository {
   Future<Either<String, String>> signIn(SigningUserReg signingUserReg);
   // Future<void> signOut();
   // Future<void> resetPassword();
+  Future<Either> getUser();
 
 }

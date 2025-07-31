@@ -1,6 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_spotify/core/configs/assets/app_images.dart';
+import 'package:flutter_spotify/data/models/auth/user.dart';
+import '../../../domain/entities/auth/user.dart';
 import '../../models/auth/create_user_req.dart';
 import '../../models/auth/signing_user_reg.dart';
 
@@ -9,6 +12,7 @@ abstract class AuthFirebaseService {
   Future<Either<String, String>> signin(SigningUserReg signingUserReg);
   // Future<void> signOut();
   // Future<void> resetPassword();
+  Future<Either> getUser();
 }
 
 class AuthFirebaseServiceImpl implements AuthFirebaseService{
@@ -75,6 +79,26 @@ class AuthFirebaseServiceImpl implements AuthFirebaseService{
         message = 'Something went wrong';
       }
       return Left(message);
+    }
+  }
+
+  @override
+  Future<Either> getUser() async{
+    try {
+      FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+      FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+      var user = await firestore.collection('Users').doc(
+            firebaseAuth.currentUser!.uid
+          ).get();
+
+      UserModel userModel = UserModel.fromJson(user.data()!);
+      userModel.imgUrl = firebaseAuth.currentUser?.photoURL ?? AppImages.appleIcon;
+      UserEntity userEntity = userModel.toEntity();
+
+      return Right(userEntity);
+    } catch (e) {
+      return Left('An error occurred.');
     }
   }
 

@@ -7,6 +7,7 @@ import 'package:flutter_spotify/core/configs/assets/app_vectors.dart';
 import 'package:flutter_spotify/core/configs/theme/app_color.dart';
 import 'package:flutter_spotify/presentation/home/widgets/new_song.dart';
 import 'package:flutter_spotify/presentation/home/widgets/play_list.dart';
+import 'package:flutter_spotify/presentation/profile/pages/profile.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class HomePage extends StatefulWidget {
@@ -29,6 +30,15 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: BasicAppBar(
+        action: IconButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (BuildContext context) => const ProfilePage()),
+            );
+          },
+          icon: Icon(Icons.more_vert_rounded),
+        ),
         hideBack: true,
         title: SvgPicture.asset(
           AppVectors.logo,

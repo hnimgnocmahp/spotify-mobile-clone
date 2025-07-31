@@ -5,4 +5,5 @@ abstract class SongRepository{
   Future<Either> getPlaylist();
   Future<Either> addOrRemoveFavouriteSongs(String songId);
   Future<bool> isFavouriteSong(String songId);
+  Future<Either> getUserFavouriteSong();
 }

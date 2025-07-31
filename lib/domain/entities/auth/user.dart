@@ -1,11 +1,11 @@
 class UserEntity {
-  String ? userId;
   String ? fullName;
   String ? email;
+  String ? imgUrl;
 
   UserEntity({
-    required this.userId,
     required this.fullName,
     required this.email,
+    required this.imgUrl,
   });
 }
