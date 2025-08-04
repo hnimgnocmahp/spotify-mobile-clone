@@ -101,7 +101,7 @@ class SongFirebaseServiceImpl implements SongFirebaseService{
       String userId = user!.uid;
 
       QuerySnapshot favouriteSongs = await firestore.collection('Users').doc(userId).collection('Favourites')
-          .where('songId', isEqualTo:  songId).get();
+          .where('songId', isEqualTo: songId).get();
 
       if (favouriteSongs.docs.isNotEmpty) {
         return true;

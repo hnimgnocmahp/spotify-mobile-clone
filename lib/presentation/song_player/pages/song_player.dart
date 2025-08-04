@@ -5,16 +5,15 @@ import 'package:flutter_spotify/common/helpers/is_dark_mode.dart';
 import 'package:flutter_spotify/common/widgets/appbar/app_bar.dart';
 import 'package:flutter_spotify/core/configs/constants/app_urls.dart';
 import 'package:flutter_spotify/core/configs/theme/app_color.dart';
-
 import '../../../common/widgets/favourite_button/favourite_button.dart';
 import '../../../domain/entities/song/song.dart';
 import '../bloc/song_player_cubit.dart';
 import '../bloc/song_player_state.dart';
+import 'lyric_sheet.dart';
 
 class SongPlayerPage extends StatelessWidget{
   final SongEntity song;
-  final bool isRepeat;
-  const SongPlayerPage({super.key, required this.song, this.isRepeat = false});
+  const SongPlayerPage({super.key, required this.song});
 
   @override
   Widget build(BuildContext context) {
@@ -29,13 +28,21 @@ class SongPlayerPage extends StatelessWidget{
       ),
       body: BlocProvider(
         create: (_) => SongPlayerCubit()..loadSong(AppUrls().buildCloudinarySongUrl(song.song_id)),
-        child: Column(
+        child: Stack(
           children: [
-            _songCover(context),
-            SizedBox(height: 20,),
-            _songDetail(),
-            SizedBox(height: 20,),
-            _songPlayer(context),
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  _songCover(context),
+                  SizedBox(height: 20),
+                  _songDetail(),
+                  SizedBox(height: 20),
+                  _songPlayer(context),
+                  SizedBox(height: 150), // để tránh che nội dung khi kéo lời
+                ],
+              ),
+            ),
+            LyricSheet(song: song),
           ],
         ),
       ),

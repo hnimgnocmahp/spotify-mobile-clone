@@ -9,6 +9,7 @@ class SongEntity{
   Timestamp releaseDate;
   bool isFavourite;
   String songId;
+  List<String> lyric;
 
   SongEntity({
     required this.title,
@@ -19,5 +20,7 @@ class SongEntity{
     required this.releaseDate,
     required this.isFavourite,
     required this.songId,
+    required this.lyric,
+
   });
 }
